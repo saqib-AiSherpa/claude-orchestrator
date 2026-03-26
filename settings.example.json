@@ -1,0 +1,119 @@
+{
+  "orchestrator": {
+    "name": "claude-orchestrator",
+    "version": "1.0.0",
+    "owner": "YOUR_NAME",
+    "timezone": "YOUR_TIMEZONE",
+    "description": "Parent orchestrator managing a portfolio of Claude Code projects"
+  },
+  "defaults": {
+    "model": "sonnet",
+    "max_agents_per_task": 5,
+    "target_agents_per_task": 3,
+    "agent_team_enabled": true,
+    "auto_sync_registries": true,
+    "changelog_on_session_end": true
+  },
+  "project_types": [
+    {
+      "type": "dev",
+      "label": "Development / Coding",
+      "default_agents": [
+        "team-lead",
+        "frontend-dev",
+        "backend-dev",
+        "ux-designer",
+        "qa",
+        "solutions-architect"
+      ],
+      "default_skills": [
+        "frontend-design",
+        "api-design-principles",
+        "git-commit-messages",
+        "playwright-testing",
+        "mcp-builder"
+      ]
+    },
+    {
+      "type": "financial",
+      "label": "Financial / Accounting",
+      "default_agents": [
+        "team-lead",
+        "analyst",
+        "research",
+        "qa"
+      ],
+      "default_skills": [
+        "spreadsheet-ops",
+        "pdf-ops",
+        "data-analysis",
+        "document-creation"
+      ]
+    },
+    {
+      "type": "business",
+      "label": "Business / Consulting",
+      "default_agents": [
+        "team-lead",
+        "research",
+        "analyst",
+        "writer",
+        "ux-designer"
+      ],
+      "default_skills": [
+        "document-creation",
+        "presentation-builder",
+        "spreadsheet-ops",
+        "internal-comms",
+        "seo-audit"
+      ]
+    },
+    {
+      "type": "research",
+      "label": "Research / Analysis",
+      "default_agents": [
+        "team-lead",
+        "research",
+        "analyst",
+        "writer"
+      ],
+      "default_skills": [
+        "document-creation",
+        "pdf-ops",
+        "data-analysis",
+        "presentation-builder"
+      ]
+    },
+    {
+      "type": "misc",
+      "label": "Miscellaneous / General",
+      "default_agents": [
+        "team-lead",
+        "research"
+      ],
+      "default_skills": [
+        "document-creation",
+        "pdf-ops"
+      ]
+    }
+  ],
+  "paths": {
+    "projects_dir": "projects",
+    "templates_dir": "templates",
+    "reports_dir": "reports",
+    "agents_registry": "AGENTS.md",
+    "skills_registry": "SKILLS.md",
+    "workflows": "WORKFLOWS.md",
+    "rules": "RULES.md"
+  },
+  "experimental": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": 1,
+    "dispatch_enabled": false,
+    "claude_channels_enabled": false,
+    "always_on_server": {
+      "enabled": false,
+      "host": null,
+      "notes": "Future: dedicated MacBook running 24/7 as the main server"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "project": {
+    "name": "example-saas-app",
+    "type": "dev",
+    "description": "Full-stack SaaS application with billing, auth, and dashboard",
+    "goal": "Ship MVP with Stripe billing, NextAuth, and admin dashboard by end of Q2"
+  },
+  "agents": [
+    "team-lead",
+    "frontend-dev",
+    "backend-dev",
+    "qa",
+    "solutions-architect"
+  ],
+  "skills": [
+    "frontend-design",
+    "api-design-principles",
+    "git-commit-messages",
+    "playwright-testing"
+  ],
+  "rules": "All code must be TypeScript (strict mode). Use Next.js App Router. Tailwind + shadcn/ui for styling. All API routes must have Zod validation.",
+  "context": "This is a B2B SaaS targeting small consultancies. Tech stack: Next.js 15, Prisma, PostgreSQL, Stripe, NextAuth. Monorepo structure with turborepo."
+}
