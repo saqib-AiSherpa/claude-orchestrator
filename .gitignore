@@ -48,3 +48,6 @@ __pycache__/
 *.tmp
 *.log
 /tmp/
+
+# Syncthing
+.stfolder/

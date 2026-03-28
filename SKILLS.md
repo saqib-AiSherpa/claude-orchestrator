@@ -119,17 +119,62 @@ Each skill entry includes: name, description, source (proprietary/community/offi
 - **Source**: Official (Anthropic)
 - **Applicable To**: Business projects
 
+### find-skills
+- **Description**: Search and discover Claude skill packs on GitHub. Filter by category, stars, and recency to find the right skill for any task.
+- **Source**: Community
+- **Applicable To**: All project types
+
+### planning-with-files
+- **Description**: Persistent task planning that auto-maintains `todo.md` and `plan.md`. Tracks task status across sessions and prevents agents from losing context or looping infinitely on long-running tasks.
+- **Source**: Community
+- **Applicable To**: All project types
+
+### ralph-wiggum
+- **Description**: Execution partner for planning-with-files. Picks up planned tasks and carries them out step by step. Use together: planning-with-files plans, ralph-wiggum executes.
+- **Source**: Community
+- **Applicable To**: All project types
+
+### vercel-react-best-practices
+- **Description**: Enforces React development standards: readability, performance, and edge-case handling. Covers component structure, hooks patterns, and Vercel deployment conventions for stable, reviewable output.
+- **Source**: Community
+- **Applicable To**: Dev projects
+
+### vue-best-practices
+- **Description**: Standardizes Vue component boundaries, state management (Pinia/Vuex), and reuse strategies. Reduces long-term maintenance costs by enforcing consistent patterns.
+- **Source**: Community
+- **Applicable To**: Dev projects
+
+### ui-ux-pro-max-skill
+- **Description**: Cross-platform design system management for Web, iOS, and Android. Covers responsive layouts, component libraries, and design token systems.
+- **Source**: Community
+- **Applicable To**: Dev, Business projects
+
+### agent-browser
+- **Description**: Research automation via browser control. Automates browsing, data extraction, and table generation for repetitive research tasks. Structured output ready for analysis.
+- **Source**: Community
+- **Applicable To**: Research, Business projects
+
+### copywriting
+- **Description**: Structured copywriting process: defines audience, identifies selling points, and generates conversion-focused copy. Avoids generic AI prose by anchoring every piece to a specific brief.
+- **Source**: Community
+- **Applicable To**: Business, Misc projects
+
+### markitdown
+- **Description**: Multi-format to Markdown converter. Handles PDF, PPT, images, audio, and ZIP files — converts them to Markdown so agents can read and process the content.
+- **Source**: Community
+- **Applicable To**: All project types
+
 ---
 
 ## Skill Deployment by Project Type
 
 | Project Type | Default Skills |
 |---|---|
-| **Dev (Coding)** | frontend-design, api-design-principles, git-commit-messages, playwright-testing, mcp-builder |
-| **Financial** | spreadsheet-ops, pdf-ops, data-analysis, document-creation |
-| **Business** | document-creation, presentation-builder, spreadsheet-ops, internal-comms, seo-audit |
-| **Research** | document-creation, pdf-ops, data-analysis, presentation-builder |
-| **Misc** | document-creation, pdf-ops |
+| **Dev (Coding)** | frontend-design, api-design-principles, git-commit-messages, playwright-testing, mcp-builder, vercel-react-best-practices, planning-with-files |
+| **Financial** | spreadsheet-ops, pdf-ops, data-analysis, document-creation, markitdown |
+| **Business** | document-creation, presentation-builder, spreadsheet-ops, internal-comms, seo-audit, copywriting, agent-browser |
+| **Research** | document-creation, pdf-ops, data-analysis, presentation-builder, agent-browser, markitdown |
+| **Misc** | document-creation, pdf-ops, markitdown |
 
 ---
 

@@ -126,6 +126,22 @@ Each agent entry includes: name, description, type (subagent vs team-capable), d
 - **Tools**: Read, Write, Grep, Glob, WebFetch
 - **Applicable To**: Business, Misc projects
 
+### Code Review Agent
+- **File**: `templates/agents/code-review-agent.md`
+- **Role**: Deep code review, PR analysis, refactoring recommendations, performance review, security smell detection, and code quality enforcement. Categorizes findings into blockers vs suggestions and always pairs critiques with concrete solutions.
+- **Model**: opus
+- **Type**: Subagent (PR/diff review) or Team member (when coordinating with Backend/Frontend Dev for iterative review cycles)
+- **Tools**: Read, Grep, Glob, Bash
+- **Applicable To**: Dev projects
+
+### Cybersecurity Agent
+- **File**: `templates/agents/cybersecurity-agent.md`
+- **Role**: Threat modeling (STRIDE/PASTA), vulnerability assessment, OWASP Top 10 analysis, authentication/authorization review, infrastructure config audits, dependency CVE scanning, and compliance alignment (SOC 2, GDPR, HIPAA, PCI-DSS).
+- **Model**: opus
+- **Type**: Subagent (security audits, threat models) or Team member (when paired with Solutions Architect for secure design sessions)
+- **Tools**: Read, Grep, Glob, Bash
+- **Applicable To**: Dev, Business projects
+
 ---
 
 ## Agent Deployment Patterns
