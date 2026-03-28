@@ -71,11 +71,11 @@ The orchestrator acts as the parent layer — it can see all projects, sync regi
 
 | Type | Default Agents | Default Skills |
 |---|---|---|
-| **Dev** | Team Lead, Frontend Dev, Backend Dev, UX Designer, QA, Solutions Architect | frontend-design, api-design, git-commit-messages, playwright-testing |
-| **Financial** | Team Lead, Analyst, Research, QA | spreadsheet-ops, pdf-ops, data-analysis, document-creation |
-| **Business** | Team Lead, Research, Analyst, Writer, UX Designer | document-creation, presentation-builder, spreadsheet-ops, internal-comms |
-| **Research** | Team Lead, Research, Analyst, Writer | document-creation, pdf-ops, data-analysis, presentation-builder |
-| **Misc** | Team Lead, Research | document-creation, pdf-ops |
+| **Dev** | Team Lead, Frontend Dev, Backend Dev, UX Designer, QA, Solutions Architect, Code Review, Cybersecurity | frontend-design, api-design-principles, git-commit-messages, playwright-testing, mcp-builder, vercel-react-best-practices, planning-with-files |
+| **Financial** | Team Lead, Analyst, Research, QA | spreadsheet-ops, pdf-ops, data-analysis, document-creation, markitdown |
+| **Business** | Team Lead, Research, Analyst, Writer, UX Designer, Cybersecurity | document-creation, presentation-builder, spreadsheet-ops, internal-comms, seo-audit, copywriting, agent-browser |
+| **Research** | Team Lead, Research, Analyst, Writer | document-creation, pdf-ops, data-analysis, presentation-builder, agent-browser, markitdown |
+| **Misc** | Team Lead, Research | document-creation, pdf-ops, markitdown |
 
 ---
 
@@ -89,17 +89,21 @@ The orchestrator acts as the parent layer — it can see all projects, sync regi
 | Analyst | Opus | Data analysis, insights, modelling |
 | Marketing Strategist | Opus | Brand positioning, campaign strategy |
 | UX Designer | Opus | UX/UI, wireframes, user research |
+| Financial Specialist | Opus | Financial modelling, investment analysis, scenario planning |
+| Code Review Agent | Opus | PR reviews, code quality enforcement, refactor recommendations |
+| Cybersecurity Agent | Opus | Threat modelling, OWASP audits, vulnerability assessment |
 | Frontend Dev | Sonnet | React, CSS, UI implementation |
 | Backend Dev | Sonnet | APIs, databases, infrastructure |
 | QA Agent | Sonnet | Testing and verification |
 | Writer | Sonnet | Documentation, copywriting, reports |
 | Social Media Manager | Sonnet | Platform-native content (works with Marketing Strategist) |
-| Financial Specialist | Sonnet | Financial modelling and analysis |
 | Ops | Sonnet | DevOps, deployment, monitoring |
 
 ---
 
 ## Skills
+
+### Proprietary (Built-in)
 
 | Skill | How to use | Description |
 |---|---|---|
@@ -107,6 +111,38 @@ The orchestrator acts as the parent layer — it can see all projects, sync regi
 | `ask` | `/ask <question>` | Query anything across all projects in plain language |
 | `archive-project` | `/archive-project <name>` | Clean project offboarding — completion report, crontab cleanup, registry update |
 | `registry-sync` | `/registry-sync` | Manually sync agent/skill registries from all projects |
+
+### Official (Anthropic)
+
+| Skill | Description |
+|---|---|
+| `document-creation` | Word documents with formatting, tables, headings |
+| `spreadsheet-ops` | Excel spreadsheets, formulas, pivot tables |
+| `presentation-builder` | PowerPoint decks, layouts, speaker notes |
+| `pdf-ops` | Read, merge, split, fill, encrypt PDFs |
+| `frontend-design` | Production-grade HTML/CSS/React interfaces |
+| `skill-creator` | Interactive guide for creating new skills |
+| `playwright-testing` | Browser automation and E2E testing |
+| `mcp-builder` | Guide for creating MCP servers |
+| `internal-comms` | Status reports, newsletters, stakeholder updates |
+
+### Community (Vetted)
+
+| Skill | Description | Best For |
+|---|---|---|
+| `find-skills` | Search GitHub for Claude skill packs | All projects |
+| `planning-with-files` | Persistent planning via `todo.md` / `plan.md` | All projects |
+| `ralph-wiggum` | Execution partner for planning-with-files | All projects |
+| `markitdown` | Convert PDF/PPT/images/audio to Markdown | All projects |
+| `vercel-react-best-practices` | React code quality standards for Vercel | Dev |
+| `vue-best-practices` | Vue component and state management standards | Dev |
+| `ui-ux-pro-max-skill` | Cross-platform design systems (Web/iOS/Android) | Dev, Business |
+| `seo-audit` | Technical SEO checklists and audits | Dev, Business |
+| `git-commit-messages` | Generate commit messages from git diffs | Dev |
+| `api-design-principles` | RESTful API design and OpenAPI specs | Dev |
+| `data-analysis` | CSV/JSON analysis and insight extraction | Financial, Research |
+| `agent-browser` | Research automation via browser control | Research, Business |
+| `copywriting` | Structured, conversion-focused copy | Business, Misc |
 
 ---
 
