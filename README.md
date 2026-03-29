@@ -65,6 +65,8 @@ Each project lives in `projects/{name}/` and gets:
 
 The orchestrator acts as the parent layer — it can see all projects, sync registries, and run cross-project workflows.
 
+Each project can optionally use a different Claude account — the scaffolder will ask during setup. When a non-default account is configured, open that project with `claude --profile <account>` instead of `claude`.
+
 ---
 
 ## Project Types
@@ -75,6 +77,7 @@ The orchestrator acts as the parent layer — it can see all projects, sync regi
 | **Financial** | Team Lead, Analyst, Research, QA | spreadsheet-ops, pdf-ops, data-analysis, document-creation, markitdown |
 | **Business** | Team Lead, Research, Analyst, Writer, UX Designer, Cybersecurity | document-creation, presentation-builder, spreadsheet-ops, internal-comms, seo-audit, copywriting, agent-browser |
 | **Research** | Team Lead, Research, Analyst, Writer | document-creation, pdf-ops, data-analysis, presentation-builder, agent-browser, markitdown |
+| **Marketing** | Team Lead, Marketing Strategist, Social Media Manager, Senior Graphic Designer, Writer | document-creation, presentation-builder, copywriting, seo-audit, md-anything, pixelpanda-mcp, agent-browser |
 | **Misc** | Team Lead, Research | document-creation, pdf-ops, markitdown |
 
 ---
@@ -96,6 +99,7 @@ The orchestrator acts as the parent layer — it can see all projects, sync regi
 | Backend Dev | Sonnet | APIs, databases, infrastructure |
 | QA Agent | Sonnet | Testing and verification |
 | Writer | Sonnet | Documentation, copywriting, reports |
+| Senior Graphic Designer | Sonnet | Visual assets, brand design, campaign graphics (works with Marketing Strategist) |
 | Social Media Manager | Sonnet | Platform-native content (works with Marketing Strategist) |
 | Ops | Sonnet | DevOps, deployment, monitoring |
 
@@ -143,6 +147,8 @@ The orchestrator acts as the parent layer — it can see all projects, sync regi
 | `data-analysis` | CSV/JSON analysis and insight extraction | Financial, Research |
 | `agent-browser` | Research automation via browser control | Research, Business |
 | `copywriting` | Structured, conversion-focused copy | Business, Misc |
+| `md-anything` (MCP) | Convert files, URLs, and media to Markdown via MCP server | All projects |
+| `pixelpanda-mcp` (MCP) | 33 image tools — resize, crop, filters, AI background removal, generation | Marketing, Business, Dev |
 
 ---
 
