@@ -142,6 +142,14 @@ Each agent entry includes: name, description, type (subagent vs team-capable), d
 - **Tools**: Read, Grep, Glob, Bash
 - **Applicable To**: Dev, Business projects
 
+### Senior Graphic Designer Agent
+- **File**: `templates/agents/senior-graphic-designer.md`
+- **Role**: Visual asset creation, brand identity design, campaign visuals, social media graphics, layout and typography, and design production. Takes creative direction from the Marketing Strategist. Can leverage PixelPanda MCP for image processing and AI-assisted generation.
+- **Model**: sonnet
+- **Type**: Team member (paired with Marketing Strategist and Social Media Manager) or Subagent (isolated design production tasks)
+- **Tools**: Read, Write, Grep, Glob, WebFetch
+- **Applicable To**: Marketing, Business, Misc projects
+
 ---
 
 ## Agent Deployment Patterns

@@ -164,6 +164,21 @@ Each skill entry includes: name, description, source (proprietary/community/offi
 - **Source**: Community
 - **Applicable To**: All project types
 
+### md-anything (MCP)
+- **Description**: Converts files, URLs, and media into Markdown via an MCP server. Supports text, PDFs, videos, and audio. Exposes `convert`, `ingest`, and `doctor` tools. Useful for ingesting external content into agent-readable format.
+- **Source**: Community (ojspace/md-anything)
+- **Install**: `npm install -g md-anything` then `mda mcp install claude-code`
+- **MCP Config**: `{ "mcpServers": { "md-anything": { "command": "md-anything-mcp" } } }`
+- **Applicable To**: All project types
+
+### pixelpanda-mcp (MCP)
+- **Description**: Image processing toolkit with 33 tools across three tiers: local editing (resize, crop, filters, format conversion), free AI features (background removal, enhancement — daily limits apply), and premium AI generation tools for e-commerce. API token optional for local/free tier.
+- **Source**: Community (RyanKramer/pixelpanda-mcp)
+- **Install**: `pip install pixelpanda-mcp` or `uvx pixelpanda-mcp`
+- **MCP Config**: `{ "mcpServers": { "pixelpanda": { "command": "uvx", "args": ["pixelpanda-mcp"], "env": { "PIXELPANDA_API_TOKEN": "pk_live_..." } } } }`
+- **Note**: `PIXELPANDA_API_TOKEN` only required for premium generation features. Local and free AI tools work without it.
+- **Applicable To**: Marketing, Business, Dev projects
+
 ---
 
 ## Skill Deployment by Project Type
@@ -174,6 +189,7 @@ Each skill entry includes: name, description, source (proprietary/community/offi
 | **Financial** | spreadsheet-ops, pdf-ops, data-analysis, document-creation, markitdown |
 | **Business** | document-creation, presentation-builder, spreadsheet-ops, internal-comms, seo-audit, copywriting, agent-browser |
 | **Research** | document-creation, pdf-ops, data-analysis, presentation-builder, agent-browser, markitdown |
+| **Marketing** | document-creation, presentation-builder, copywriting, seo-audit, md-anything, pixelpanda-mcp, agent-browser |
 | **Misc** | document-creation, pdf-ops, markitdown |
 
 ---

@@ -66,7 +66,8 @@ What type of project is this?
   2  Financial — Financial modelling / accounting / budgeting
   3  Business — Strategy / consulting / planning
   4  Research — Research / analysis / intelligence
-  5  Misc — Doesn't fit the above
+  5  Marketing — Brand, campaigns, content, and creative production
+  6  Misc — Doesn't fit the above
 ```
 
 ### Q4 — Primary Goal
@@ -98,13 +99,14 @@ If they choose 2, 3, 4, or 5 — handle those sub-edits one step at a time befor
 
 #### Agent Defaults by Project Type
 
-| Type       | Default Agents                                                                       |
-|------------|--------------------------------------------------------------------------------------|
-| dev        | Team Lead, Frontend Dev, Backend Dev, QA                                             |
-| financial  | Team Lead, Analyst, Financial Specialist, Writer                                     |
-| business   | Team Lead, Solutions Architect, Analyst, Writer, Marketing Strategist, Social Media Manager |
-| research   | Team Lead, Research Agent, Analyst, Writer                                           |
-| misc       | Team Lead, Analyst, Writer                                                           |
+| Type       | Default Agents                                                                                          |
+|------------|---------------------------------------------------------------------------------------------------------|
+| dev        | Team Lead, Frontend Dev, Backend Dev, QA                                                                |
+| financial  | Team Lead, Analyst, Financial Specialist, Writer                                                        |
+| business   | Team Lead, Solutions Architect, Analyst, Writer, Marketing Strategist, Social Media Manager            |
+| research   | Team Lead, Research Agent, Analyst, Writer                                                              |
+| marketing  | Team Lead, Marketing Strategist, Social Media Manager, Senior Graphic Designer, Writer                  |
+| misc       | Team Lead, Analyst, Writer                                                                              |
 
 ### Q6 — Skills & Tools
 ```
@@ -120,7 +122,34 @@ Here are the default skills for a [type] project:
 
 Handle additions/removals one at a time if requested.
 
-### Q7 — Project-Specific Rules
+#### Default Skills by Project Type
+
+| Type      | Default Skills |
+|-----------|----------------|
+| dev       | frontend-design, api-design-principles, git-commit-messages, playwright-testing, mcp-builder, vercel-react-best-practices, planning-with-files |
+| financial | spreadsheet-ops, pdf-ops, data-analysis, document-creation, markitdown |
+| business  | document-creation, presentation-builder, spreadsheet-ops, internal-comms, seo-audit, copywriting, agent-browser |
+| research  | document-creation, pdf-ops, data-analysis, presentation-builder, agent-browser, markitdown |
+| marketing | document-creation, presentation-builder, copywriting, seo-audit, md-anything, pixelpanda-mcp, agent-browser |
+| misc      | document-creation, pdf-ops, markitdown |
+
+### Q7 — Claude Account
+```
+Should this project use a different Claude account from the orchestrator default?
+
+  1  No — use the default account (most projects)
+  2  Yes — I'll specify a different account
+```
+
+If they choose 2, ask:
+```
+What is the Claude account profile name to use for this project?
+(This is the profile name configured in your Claude Code settings, e.g. "work", "client-acme")
+```
+
+Store the account as `claudeAccount` in the project's `settings.json`. When a non-default account is set, the post-creation instructions will remind the operator to open Claude Code with `claude --profile {account}` in the project directory.
+
+### Q8 — Project-Specific Rules
 ```
 Are there any rules or constraints specific to this project?
 (e.g. "Python 3.11+ only", "No external API calls without approval", "All outputs in Arabic and English")
@@ -129,7 +158,7 @@ Are there any rules or constraints specific to this project?
   2  Yes — I'll describe them
 ```
 
-### Q8 — Seed Context
+### Q9 — Seed Context
 ```
 Any existing documents, files, or context I should seed this project with?
 (Reference materials, briefs, data sources, prior research)
@@ -138,7 +167,7 @@ Any existing documents, files, or context I should seed this project with?
   2  Yes — I'll describe or list them
 ```
 
-### Q9 — Confirmation
+### Q10 — Confirmation
 
 Display the complete configuration summary:
 
@@ -149,6 +178,7 @@ Here's the full project configuration:
   Type:        {type}
   Description: {description}
   Goal:        {goal}
+  Account:     {default / profile name}
   Agents:      {agent list}
   Skills:      {skill list}
   Rules:       {rules summary}
@@ -276,7 +306,17 @@ Only orchestrator config files will be created or updated.
 
 If they choose 2, display a diff-style summary of every file that will be created or modified, then re-confirm.
 
-### I9 — Rules
+### I9 — Claude Account
+```
+Should this project use a different Claude account from the orchestrator default?
+
+  1  No — use the default account
+  2  Yes — I'll specify a different account
+```
+
+If they choose 2, ask for the profile name. Store as `claudeAccount` in `settings.json` and include the `claude --profile {account}` reminder in post-ingestion output.
+
+### I10 — Rules
 ```
 Any specific rules or constraints for this project beyond the shared defaults?
 
@@ -284,7 +324,7 @@ Any specific rules or constraints for this project beyond the shared defaults?
   2  Yes — I'll describe them
 ```
 
-### I10 — Final Confirmation
+### I11 — Final Confirmation
 
 ```
 Here's the ingestion plan for "{project-name}":
@@ -292,6 +332,7 @@ Here's the ingestion plan for "{project-name}":
   Type:         {type}
   Description:  {description}
   Goal:         {goal}
+  Account:      {default / profile name}
   Agents:       {agent list}
   Skills:       {skill list}
   Rules:        {rules}
@@ -455,13 +496,14 @@ After confirmation, generate or update the following structure inside the projec
     "goal": "{goal}",
     "created": "{ISO date}",
     "status": "active",
-    "ingested": true
+    "ingested": true,
+    "claudeAccount": "{profile name or null}"
   },
   "agents": ["{list of active agents}"],
   "skills": ["{list of active skills}"]
 }
 ```
-(Set `"ingested": false` for new projects.)
+(Set `"ingested": false` for new projects. Set `"claudeAccount": null` when the default account is used.)
 
 **.claude/settings.json**: Copy from parent's `.claude/settings.json` with agent teams enabled.
 
@@ -472,7 +514,13 @@ After confirmation, generate or update the following structure inside the projec
 1. Confirm completion and display the final directory tree (orchestrator files only for ingested projects).
 2. For **new projects**: "To start working on this project, open Claude Code in `projects/{project-name}/`."
 3. For **ingested projects**: "Your existing project content is untouched. The orchestrator layer is now in place — open Claude Code in `{project-path}/` to start working with agents."
-4. Ask: "Would you like to define any initial tasks for the Team Lead?"
+4. If a non-default `claudeAccount` was configured, display this reminder:
+   ```
+   Account note: This project is configured for Claude account "{profile}".
+   Open it with: claude --profile {profile}
+   (from the project directory: projects/{project-name}/)
+   ```
+5. Ask: "Would you like to define any initial tasks for the Team Lead?"
 
 ---
 
