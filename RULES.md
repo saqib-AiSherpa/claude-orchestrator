@@ -38,6 +38,17 @@
 16. **Sensitive data handling**: Financial data, credentials, and PII are treated with care. Never log sensitive values in plaintext.
 17. **Git hygiene**: Meaningful commit messages. Feature branches for non-trivial work. No force-pushing shared branches.
 
+## Parallel Agent Execution
+
+21. **True parallel agents require the `claude-agent` user**: The root user cannot use `--dangerously-skip-permissions`, which blocks nested subagent spawning. For true parallel Team Lead + subagent execution, use the `spawn-team.sh` script:
+    ```bash
+    /root/Saqib\ Macbook\ Orchestration\ Folder/scripts/spawn-team.sh \
+      --cwd "<project-dir>" \
+      --prompt "<team-lead-prompt>"
+    ```
+    This runs the Claude session as the `claude-agent` user (uid=1001), which has full subagent spawning capability.
+22. **`claude-agent` user setup**: Credentials are at `/home/claude-agent/.claude/.credentials.json`. Binary at `/root/.local/bin/claude` (world-executable). Sudoers rule: `root ALL=(claude-agent) NOPASSWD: /root/.local/bin/claude`.
+
 ## Operator Preferences
 
 18. **Tone**: Professional but conversational. No corporate fluff. Be direct and efficient.

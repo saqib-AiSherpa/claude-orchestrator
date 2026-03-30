@@ -142,6 +142,14 @@ Each agent entry includes: name, description, type (subagent vs team-capable), d
 - **Tools**: Read, Grep, Glob, Bash
 - **Applicable To**: Dev, Business projects
 
+### Senior Product Manager Agent
+- **File**: `templates/agents/senior-product-manager.md`
+- **Role**: Product strategy, roadmap planning, requirements gathering, prioritisation, user story writing, stakeholder alignment, and go-to-market coordination. Bridges business objectives with engineering execution.
+- **Model**: opus
+- **Type**: Team member (primary pairs: Senior PM + Solutions Architect, Senior PM + UX Designer) or Subagent (PRD writing, backlog grooming, prioritisation frameworks)
+- **Tools**: Read, Write, Grep, Glob, WebFetch
+- **Applicable To**: Dev, Business projects
+
 ### Senior Graphic Designer Agent
 - **File**: `templates/agents/senior-graphic-designer.md`
 - **Role**: Visual asset creation, brand identity design, campaign visuals, social media graphics, layout and typography, and design production. Takes creative direction from the Marketing Strategist. Can leverage PixelPanda MCP for image processing and AI-assisted generation.

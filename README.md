@@ -95,6 +95,7 @@ Each project can optionally use a different Claude account — the scaffolder wi
 | Financial Specialist | Opus | Financial modelling, investment analysis, scenario planning |
 | Code Review Agent | Opus | PR reviews, code quality enforcement, refactor recommendations |
 | Cybersecurity Agent | Opus | Threat modelling, OWASP audits, vulnerability assessment |
+| Senior Product Manager | Opus | Product strategy, roadmaps, PRDs, prioritisation, stakeholder alignment |
 | Frontend Dev | Sonnet | React, CSS, UI implementation |
 | Backend Dev | Sonnet | APIs, databases, infrastructure |
 | QA Agent | Sonnet | Testing and verification |
